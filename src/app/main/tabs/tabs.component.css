@@ -1,0 +1,13 @@
+:host {
+    align-self: stretch;
+    width: 100%;
+}
+
+.tab-label {
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.close-icon:hover {
+    color: #3f51b5;
+}

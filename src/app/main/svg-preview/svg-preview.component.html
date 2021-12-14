@@ -1,0 +1,42 @@
+<mat-card class="svg-preview-card">
+    <mat-card-actions class="svg-actions">
+        <button mat-icon-button *ngFor="let color of FillColors" [ngStyle]="{'color': color}" (click)="fillColor = color">
+            <mat-icon>format_color_fill</mat-icon>
+        </button>
+        <span class="v-separator"></span>
+        <button mat-icon-button *ngFor="let color of BgColors" [ngStyle]="{'color': color === '#FFFFFF' ? '#CCCCCC' : color}" (click)="bgColor = color">
+            <mat-icon>gradient</mat-icon>
+        </button>
+        <ng-container *ngIf="settings.addFeruiIconTypeClasses">
+            <span class="v-separator"></span>
+            <span class="h-text">Beta</span>
+            <button mat-icon-button (click)="setTwoToneIcon()" [ngStyle]="{'filter': twoToneIcon ? 'none' : 'contrast(0%) opacity(0.5)'}" matTooltip="Two-tone icon">
+                <mat-icon fontSet="material-icons-two-tone">image</mat-icon>
+            </button>
+            <button mat-icon-button (click)="setSolidIcon()" [ngStyle]="{'color': solidIcon ? '#191C28' : '#CCCCCC'}" matTooltip="Solid icon">
+                <mat-icon>image</mat-icon>
+            </button>
+            <button mat-icon-button (click)="setOutlineIcon()" [ngStyle]="{'color': outlineIcon ? '#191C28' : '#CCCCCC'}" matTooltip="Outline icon">
+                <mat-icon fontSet="material-icons-outlined">image</mat-icon>
+            </button>
+        </ng-container>
+    </mat-card-actions>
+    <div #svgContainer class="svg-container"
+         [class.icon-two-tone]="twoToneIcon"
+         [class.icon-solid]="solidIcon"
+         [class.icon-outline]="outlineIcon"
+         [ngStyle]="{'fill': fillColor, 'background-color': bgColor, 'color': bgColor}">
+        <ng-container *ngIf="invalidSvg">
+            <mat-icon class="invalid-svg-icon">desktop_access_disabled</mat-icon>
+            <span class="invalid-svg-text">Invalid SVG</span>
+        </ng-container>
+    </div>
+    <mat-card-actions class="svg-actions-grid">
+        <span class="file-size">Size: {{getFileSize()}}</span>
+        <div class="zoom-buttons">
+            <button mat-icon-button color="primary" (click)="zoomReset()"><mat-icon>restart_alt</mat-icon></button>
+            <button mat-icon-button color="primary" (click)="zoomOut()"><mat-icon>remove</mat-icon></button>
+            <button mat-icon-button color="primary" (click)="zoomIn()"><mat-icon>add</mat-icon></button>
+        </div>
+    </mat-card-actions>
+</mat-card>

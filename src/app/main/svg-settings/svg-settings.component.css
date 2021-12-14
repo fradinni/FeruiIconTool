@@ -1,0 +1,28 @@
+:host {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 10px;
+    height: 100%;
+    overflow: auto;
+}
+
+.svg-settings-card {
+    /*padding: 0 15px !important;*/
+}
+
+.slider {
+    margin-left: 10px;
+    width: 192px;
+}
+
+.settings-param {
+    display: block;
+}
+
+.settings-param span {
+    color: #F76464;
+}
+
+.settings-param.child {
+    margin-left: 10px;
+}

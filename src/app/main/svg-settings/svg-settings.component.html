@@ -1,0 +1,22 @@
+<mat-card class="svg-settings-card">
+    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="mergePaths">Merge SVG paths</mat-slide-toggle>
+    <div class="settings-param child" *ngIf="mergePaths && !mergePathsForce">
+        <label>Precision</label>
+        <mat-slider thumbLabel class="slider" color="accent" [(ngModel)]="mergePathsPrecision" tickInterval="1" step="1" min="0" max="10" aria-label="precision"></mat-slider>
+    </div>
+    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="optimize">Optimize SVG</mat-slide-toggle>
+    <div class="settings-param child" *ngIf="optimize">
+        <label>Precision</label>
+        <mat-slider thumbLabel class="slider" color="accent" [(ngModel)]="precision" tickInterval="1" step="1" min="0" max="10" aria-label="precision"></mat-slider>
+    </div>
+<!--    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="removeXmlns">Remove XMLNS</mat-slide-toggle>-->
+<!--    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="removeSvgWidthHeight">Remove SVG width/height</mat-slide-toggle>-->
+<!--    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="removeSvgViewBox">Remove SVG viewBox</mat-slide-toggle>-->
+    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="removeFill">Remove useless fill attributes</mat-slide-toggle>
+<!--    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="removeClipRule">Remove clip-rule</mat-slide-toggle>-->
+<!--    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="removeFillRule">Remove fill-rule</mat-slide-toggle>-->
+    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="addBackgroundCrispEdgeAttribute">Background 'shape-rendering: crispEdge'</mat-slide-toggle>
+    <mat-slide-toggle class="settings-param" color="primary" [(ngModel)]="addFeruiClasses">Add FerUI classes</mat-slide-toggle>
+    <mat-slide-toggle *ngIf="addFeruiClasses" class="settings-param child" color="accent" [(ngModel)]="addFeruiClassesPathNames">Generate svg path names</mat-slide-toggle>
+    <mat-slide-toggle *ngIf="addFeruiClasses" class="settings-param child" color="accent" [(ngModel)]="addFeruiIconTypeClasses">Generate solid/outline classes <span>(Beta)</span></mat-slide-toggle>
+</mat-card>

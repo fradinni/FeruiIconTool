@@ -1,0 +1,71 @@
+:host {
+    width: 100%;
+    max-width: 100%;
+}
+
+.svg-preview-card {
+    padding: 0 !important;
+}
+
+.svg-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 300px;
+    border-top: 1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.invalid-svg-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 100px;
+    color: #C3C3C3;
+}
+
+.invalid-svg-text {
+    font-size: 34px;
+    line-height: 34px;
+    color: #C3C3C3;
+}
+
+.svg-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 0 !important;
+    margin: 0 !important;
+}
+
+.svg-actions button {
+    width: 38px !important;
+}
+
+.svg-actions .h-text {
+    color: #F76464;
+    font-size: 10px;
+    margin-top: 3px;
+}
+.svg-actions-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.file-size {
+    margin-left: 10px;
+}
+
+.v-separator {
+    display: inline-block;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #EFEFEF;
+    height: 29px;
+    line-height: 29px;
+    vertical-align: middle;
+    margin: 0 10px;
+}

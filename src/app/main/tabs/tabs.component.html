@@ -1,0 +1,11 @@
+<mat-tab-group animationDuration="0" [selectedIndex]="selectedTabIndex" (selectedIndexChange)="onSelectedTabIndexChange($event)">
+    <mat-tab *ngFor="let file of files; let index = index">
+        <!-- Tab Header -->
+        <ng-template mat-tab-label>
+            <span class="tab-label">{{file.name}}</span>
+            <mat-icon class="close-icon" (click)="onClose(index)">close</mat-icon>
+        </ng-template>
+        <!-- Tab Content -->
+        <file-tab [file]="file"></file-tab>
+    </mat-tab>
+</mat-tab-group>

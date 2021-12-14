@@ -1,0 +1,31 @@
+:host {
+    align-self: stretch;
+    width: 100%;
+}
+
+.drag-and-drop-zone {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    row-gap: 20px;
+    font-size: 10px;
+}
+
+.drag-and-drop-logo {
+    width: 250px;
+    height: 185px;
+    display: inline-block;
+    background-color: #A3A3A3;
+    mask: url(../../../assets/drag-and-drop.svg) no-repeat center;
+    mask-size: cover;
+}
+
+.drag-and-drop-text {
+    display: inline-block;
+    color: #A3A3A3;
+    font-size: 40px;
+    padding: 10px 0;
+    margin-bottom: 50px;
+}

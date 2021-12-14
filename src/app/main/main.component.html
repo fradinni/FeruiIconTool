@@ -1,0 +1,4 @@
+<div id="main">
+    <drop-placeholder *ngIf="!hasFilesOpened()"></drop-placeholder>
+    <tabs *ngIf="hasFilesOpened()" [files]="files" (onCloseFile)="removeFile($event)"></tabs>
+</div>

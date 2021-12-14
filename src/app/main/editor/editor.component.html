@@ -1,0 +1,5 @@
+<ngx-codemirror *ngIf="!editorError" [(ngModel)]="data" [options]="editorOptions" [preserveScrollPosition]="true"></ngx-codemirror>
+<div *ngIf="editorError" class="editor-loading-error">
+    <mat-icon class="error-icon">web_asset_off</mat-icon>
+    <div class="error-message">{{editorError.message}}</div>
+</div>

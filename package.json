@@ -1,0 +1,159 @@
+{
+  "ManifestComments": [
+    "Only add dependencies that you want shipped to the end user, for everything else, use devDependencies, including things that will be bundled by webpack.",
+    "NW.js requires a name and a main, everything else is optional.",
+    "The build section is used by nwjs-builder-phoenix, see it's documentation for more info",
+    "Though for development, we point to localhost, the dist version points directly to files on disk. You can change this by:",
+    [
+      "1. Add a web server dependency (like express)",
+      "2. Create a server.js file to run a local webserver on port 8965",
+      "3. Point build.overriddenProperties.node-main to 'node server.js'. This will run before the NW.js window is launched.",
+      "4. Point the build.overriddenProperties.main to 'http://localhost:8965'",
+      "5. Point the build.overriddenProperties.node-remote to 'http://localhost:8965'. To allow NW.js API and Node.js access from the DOM.",
+      "6. Remove 'node-remote' from build.strippedProperties"
+    ],
+    "To turn spell checking off, remove the chromium-args from this file"
+  ],
+  "name": "FeruiIconTool",
+  "version": "0.0.1",
+  "main": "http://localhost:8964",
+  "node-remote": "http://localhost:8964",
+  "remoteManifestUrl": "testUrl",
+  "window": {
+    "width": 1280,
+    "height": 720,
+    "min_width": 700,
+    "min_height": 500,
+    "icon": "assets/icon.png"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "concurrently \"npm run start:web\" \"wait-on http://localhost:8964 && nw .\"",
+    "start:web": "ng serve --port=8964",
+    "build": "npm run build:clean && npm run build:ng && npm run build:all",
+    "build:x64": "npm run build:clean && npm run build:ng && npm run build:nw_linux_mac",
+    "build:linux": "npm run build:clean && npm run build:ng && npm run build:nw_linux",
+    "build:mac": "npm run build:clean && npm run build:ng && npm run build:nw_mac",
+    "build:clean": "rimraf ./dist-ng ./dist",
+    "build:ng": "ng build --configuration production --output-path ./dist-ng",
+    "build:all": "build --concurrent --tasks win-x86,linux-x86,linux-x64,mac-x64 --mirror https://dl.nwjs.io/ .",
+    "build:nw_linux": "build --concurrent --tasks linux-x64 --mirror https://dl.nwjs.io/ .",
+    "build:nw_mac": "build --concurrent --tasks mac-x64 --mirror https://dl.nwjs.io/ .",
+    "build:nw_linux_mac": "build --concurrent --tasks linux-x64,mac-x64 --mirror https://dl.nwjs.io/ .",
+    "generate": "ng generate",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^12.2.14",
+    "@angular/cdk": "^12.2.13",
+    "@angular/forms": "^12.2.14",
+    "@angular/material": "^12.2.13",
+    "@ctrl/ngx-codemirror": "^5.1.1",
+    "codemirror": "^5.64.0",
+    "ngx-file-drop": "^11.3.0",
+    "svg-pan-zoom": "^3.6.1",
+    "svgo": "^2.8.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^12.2.14",
+    "@angular-eslint/builder": "12.3.1",
+    "@angular-eslint/eslint-plugin": "12.3.1",
+    "@angular-eslint/eslint-plugin-template": "12.3.1",
+    "@angular-eslint/schematics": "12.3.1",
+    "@angular-eslint/template-parser": "12.3.1",
+    "@angular/animations": "^12.2.14",
+    "@angular/cli": "^12.2.14",
+    "@angular/common": "^12.2.14",
+    "@angular/compiler": "^12.2.14",
+    "@angular/compiler-cli": "^12.2.14",
+    "@angular/core": "^12.2.14",
+    "@angular/forms": "^12.2.14",
+    "@angular/language-service": "^12.2.14",
+    "@angular/platform-browser": "^12.2.14",
+    "@angular/platform-browser-dynamic": "^12.2.14",
+    "@angular/router": "^12.2.14",
+    "@types/jasmine": "^3.8.2",
+    "@types/jasminewd2": "^2.0.10",
+    "@types/node": "^16.7.10",
+    "@typescript-eslint/eslint-plugin": "4.28.2",
+    "@typescript-eslint/parser": "4.28.2",
+    "concurrently": "^6.2.1",
+    "eslint": "^7.26.0",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-jsdoc": "latest",
+    "eslint-plugin-prefer-arrow": "latest",
+    "jasmine-core": "^3.9.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "karma": "^6.3.4",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "^3.0.3",
+    "karma-jasmine": "^4.0.1",
+    "karma-jasmine-html-reporter": "^1.7.0",
+    "nw": "0.59.0-sdk",
+    "nwjs-builder-phoenix": "^1.15.0",
+    "nwjs-types": "^1.0.0",
+    "protractor": "^7.0.0",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.3.0",
+    "ts-node": "^10.2.1",
+    "tslib": "^2.3.1",
+    "typescript": "4.3.x",
+    "wait-on": "^6.0.0",
+    "zone.js": "^0.11.4"
+  },
+  "chromium-args": "",
+  "build": {
+    "nwVersion": "v0.59.0",
+    "nwFlavor": "normal",
+    "targets": [],
+    "files": [
+      "**/*"
+    ],
+    "excludes": [
+      "e2e/**/*",
+      "scripts/**/*",
+      "src/**/*",
+      ".editorconfig",
+      ".gitignore",
+      "angular.json",
+      "browserslist",
+      "build.sh",
+      "karma.conf.js",
+      "package-lock.json",
+      "screenshot.png",
+      "tsconfig.app.json",
+      "tsconfig.json",
+      "tsconfig.spec.json",
+      "tslint.json"
+    ],
+    "strippedProperties": [
+      "ManifestComments",
+      "node-remote",
+      "scripts",
+      "devDependencies",
+      "build"
+    ],
+    "overriddenProperties": {
+      "main": "dist-ng/index.html",
+      "node-remote": ""
+    },
+    "win": {
+      "icon": "assets/icon-256.ico"
+    },
+    "mac": {
+      "icon": "assets/icon.icns"
+    },
+    "nsis": {
+      "icon": "assets/icon-256.ico",
+      "unIcon": "assets/icon.ico",
+      "languages": [
+        "English"
+      ],
+      "diffUpdaters": false,
+      "hashCalculation": true
+    }
+  }
+}

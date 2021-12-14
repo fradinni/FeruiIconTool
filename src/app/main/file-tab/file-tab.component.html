@@ -1,0 +1,38 @@
+<mat-sidenav-container class="tab-content">
+    <!-- Preview & Settings -->
+    <mat-sidenav opened mode="side" position="end">
+        <div class="settings">
+            <svg-preview [svg]="previewData" [svgSettings]="optimizeSettings"></svg-preview>
+            <div class="icon-name">
+                <mat-form-field appearance="fill" class="icon-name-field">
+                    <mat-label>Icon name</mat-label>
+                    <input matInput placeholder="Icon name" [(ngModel)]="iconName" (ngModelChange)="onSettingsChange()">
+                </mat-form-field>
+            </div>
+            <svg-settings [(settings)]="optimizeSettings"></svg-settings>
+        </div>
+    </mat-sidenav>
+
+    <!--  Editor  -->
+    <div class="file-editor">
+        <file-editor [(data)]="editorData" [viewType]="viewType" (onIgnoredLinesChange)="onIgnoredLinesChange($event)"></file-editor>
+    </div>
+
+    <!--  Bottom Bar  -->
+    <div class="bottom-bar">
+        <div class="bar-section">
+            <span>{{getPathCount()}} Paths</span>
+        </div>
+        <div class="bar-section">
+            <button mat-flat-button class="small" color="accent"
+                    *ngIf="canResetRawData()" (click)="resetRawDataChanges()">Reset changes</button>
+        </div>
+        <div class="bar-section">
+            <mat-button-toggle-group [(ngModel)]="viewType">
+                <mat-button-toggle class="bottom-bar-button" value="ORIGINAL">Raw</mat-button-toggle>
+                <mat-button-toggle class="bottom-bar-button" value="OPTIMIZED">SVG</mat-button-toggle>
+                <mat-button-toggle class="bottom-bar-button" value="TYPESCRIPT">FerUI</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+</mat-sidenav-container>
