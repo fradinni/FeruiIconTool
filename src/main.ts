@@ -2,8 +2,9 @@ import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { Logger, LogLevel } from './logger';
-import { AppModule } from './app/app.module';
+import { AppV0Module } from './app_v0/app.module';
 import { environment } from './environments/environment';
+import { AppModule } from './app/app.module';
 
 window.console = new Logger(console);
 
@@ -22,5 +23,8 @@ window.ondrop = function(event) {
   event.stopPropagation();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+// TODO: Remove this before v1.x Release
+const appVersion: number = 1;
+
+platformBrowserDynamic().bootstrapModule(appVersion === 0 ? AppV0Module : AppModule)
   .catch(err => console.error(err));
