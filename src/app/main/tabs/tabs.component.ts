@@ -4,7 +4,7 @@ import { SvgFile } from '../../models/svg-file';
 @Component({
   selector: 'tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css']
+  styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnChanges {
 

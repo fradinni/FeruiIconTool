@@ -5,7 +5,7 @@ import { SvgSettings } from '../../interfaces/common-interfaces';
 @Component({
   selector: 'svg-preview',
   templateUrl: './svg-preview.component.html',
-  styleUrls: ['./svg-preview.component.css']
+  styleUrls: ['./svg-preview.component.scss']
 })
 export class SvgPreviewComponent implements AfterViewInit, OnChanges {
 

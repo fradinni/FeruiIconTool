@@ -7,7 +7,7 @@ import { SvgOptimizeService } from '../../services/svg-optimize.service';
 @Component({
   selector: 'file-tab',
   templateUrl: './file-tab.component.html',
-  styleUrls: ['./file-tab.component.css']
+  styleUrls: ['./file-tab.component.scss']
 })
 export class FileTabComponent implements OnInit {
 

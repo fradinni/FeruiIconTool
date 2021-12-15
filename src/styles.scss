@@ -1,0 +1,85 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~codemirror/lib/codemirror';
+@import '~codemirror/theme/material';
+@import '~codemirror/addon/scroll/simplescrollbars';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  box-sizing: border-box;
+}
+
+/* Svg Preview Styles */
+.icon-solid {
+  [class*=fui-i-path] {
+    display: none;
+  }
+  .fui-i-solid {
+    display: block;
+  }
+  .fui-i-outline:nth-last-child(1) {
+    fill: currentColor;
+  }
+}
+
+.icon-outline {
+  [class*=fui-i-path] {
+    display: none;
+  }
+  .fui-i-outline {
+    display: block;
+  }
+}
+
+/* Code Mirror Overrides */
+.CodeMirror {
+  width: 100%;
+  height: 100%;
+}
+
+/* Material Overrides */
+.mat-tab-group {
+  max-height: 100%;
+  height: 100%;
+}
+.mat-tab-body-wrapper {
+  height: 100%;
+}
+.mat-tab-label {
+  padding-left: 10px !important;
+  padding-right: 5px !important;
+}
+.mat-tab-label-content {
+  width: 100%;
+}
+.mat-card {
+  border: 1px solid #E5EAEE;
+}
+.mat-slider {
+  padding: 0 !important;
+}
+.mat-slider-horizontal .mat-slider-wrapper {
+  left: 0 !important;
+  right: 0 !important;
+}
+.mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+.mat-form-field-underline {
+  bottom: 0 !important;
+}
+
+.bottom-bar-button .mat-button-toggle-label-content {
+  line-height: 20px !important;
+  color: white !important;
+}
+
+.bottom-bar-button.mat-button-toggle-appearance-standard {
+  background-color: transparent;
+}
+
+.bottom-bar-button.mat-button-toggle-checked {
+  background-color: #3f51b5 !important;
+}
+
