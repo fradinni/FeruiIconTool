@@ -4,7 +4,7 @@ import { SvgSettings } from '../../interfaces/common-interfaces';
 @Component({
   selector: 'svg-settings',
   templateUrl: './svg-settings.component.html',
-  styleUrls: ['./svg-settings.component.css']
+  styleUrls: ['./svg-settings.component.scss']
 })
 export class SvgSettingsComponent implements OnInit {
 
