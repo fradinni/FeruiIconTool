@@ -15,7 +15,7 @@
     "To turn spell checking off, remove the chromium-args from this file"
   ],
   "name": "FeruiIconTool",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "http://localhost:8964",
   "node-remote": "http://localhost:8964",
   "remoteManifestUrl": "testUrl",

@@ -218,7 +218,7 @@ export class SvgOptimizeService {
                   'class': [
                     ...currentClasses,
                     //...params.attrs['two-tone-classes'],
-                    ...settings.addFeruiIconTypeClasses ? params.attrs['solid-classes'] : params.attrs['solid-classes']
+                    ...settings.addFeruiIconTypeClasses ? params.attrs['outline-classes'] : params.attrs['outline-classes']
                   ].join(' '),
                   ...current.attributes
                 };
@@ -227,7 +227,7 @@ export class SvgOptimizeService {
                   'class': [
                     ...nextClasses,
                     //...params.attrs['two-tone-classes']
-                    ...settings.addFeruiIconTypeClasses ? [] : params.attrs['solid-classes']
+                    ...settings.addFeruiIconTypeClasses ? [] : params.attrs['outline-classes']
                   ].join(' '),
                   ...next.attributes
                 };
@@ -238,7 +238,7 @@ export class SvgOptimizeService {
                   'class': [
                     ...currentClasses,
                     //...params.attrs['two-tone-classes'],
-                    ...settings.addFeruiIconTypeClasses ? [...params.attrs['solid-classes'], ...params.attrs['outline-classes']] : [...params.attrs['solid-classes']]
+                    ...settings.addFeruiIconTypeClasses ? [...params.attrs['solid-classes'], ...params.attrs['outline-classes']] : [...params.attrs['outline-classes']]
                   ].join(' '),
                   ...current.attributes
                 };
@@ -248,7 +248,7 @@ export class SvgOptimizeService {
                     'class': [
                       ...nextClasses,
                       //...params.attrs['two-tone-classes'],
-                      ...settings.addFeruiIconTypeClasses ? [...params.attrs['solid-classes'], ...params.attrs['outline-classes']] : [...params.attrs['solid-classes']]
+                      ...settings.addFeruiIconTypeClasses ? [...params.attrs['solid-classes'], ...params.attrs['outline-classes']] : [...params.attrs['outline-classes']]
                     ].join(' '),
                     ...next.attributes
                   };

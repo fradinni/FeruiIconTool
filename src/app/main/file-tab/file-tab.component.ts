@@ -84,7 +84,7 @@ export class FileTabComponent implements OnInit {
    * Generate Optimized and FerUI data.
    */
   generateFileData(): void {
-    this.file.optimizedData = this.svgOptimizeService.optimize(this.file.data, this.iconName, this.optimizeSettings);
+    this.file.optimizedData = this.svgOptimizeService.optimize(this.removeXmlTag(this.file.data), this.iconName, this.optimizeSettings);
     this.file.feruiData = this.svgOptimizeService.generateFeruiCode(this.iconName, this.file.optimizedData);
   }
 
@@ -95,20 +95,20 @@ export class FileTabComponent implements OnInit {
   onEditorDataChange(data: string) {
     switch (this.viewType) {
       case EditorViewType.ORIGINAL:
-        this.file.data = data;
+        this.file.data = this.removeXmlTag(data);
         if (this.svgOptimizeService.validateSvg(data)) {
-          this.file.optimizedData = this.svgOptimizeService.optimize(this.file.data, this.iconName, this.optimizeSettings);
+          this.file.optimizedData = this.svgOptimizeService.optimize(this.removeXmlTag(this.file.data), this.iconName, this.optimizeSettings);
           this.file.feruiData = this.svgOptimizeService.generateFeruiCode(this.iconName, this.file.optimizedData);
         }
         break;
       case EditorViewType.OPTIMIZED:
-        this.file.optimizedData = data;
+        this.file.optimizedData = this.removeXmlTag(data);
         if (this.svgOptimizeService.validateSvg(data)) {
           this.file.feruiData = this.svgOptimizeService.generateFeruiCode(this.iconName, this.file.optimizedData);
         }
         break;
       case EditorViewType.TYPESCRIPT:
-        this.file.feruiData = data;
+        this.file.feruiData = this.removeXmlTag(data);
     }
   }
 
@@ -154,5 +154,9 @@ export class FileTabComponent implements OnInit {
   resetRawDataChanges(): void {
     this.file.reset();
     this.generateFileData();
+  }
+
+  private removeXmlTag(data: string): string {
+    return data.replace('<?xml version="1.0" encoding="UTF-8"?>', '');
   }
 }
